@@ -4,12 +4,14 @@
   "description": "An application allowing you to coordinate multiple repositories CI/CD pipelines via a central interface",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alexander KIRILOV",
   "license": "ISC",
   "dependencies": {
     "ejs": "^2.6.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "node": "^11.10.0"
   }
 }
