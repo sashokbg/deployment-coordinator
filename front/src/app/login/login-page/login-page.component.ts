@@ -20,4 +20,8 @@ export class LoginPageComponent {
   isLoggedIn() {
     return !!this.loginService.accessToken;
   }
+
+  redirectToLogin() {
+    this.loginService.redirectToLogin();
+  }
 }

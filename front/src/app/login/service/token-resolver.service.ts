@@ -15,11 +15,14 @@ export class TokenResolverService implements Resolve<string> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<string> | Promise<string> | string {
 
     let urlParams = new URLSearchParams(route.fragment);
+    let accessToken = urlParams.get('access_token');
 
-    console.log('Resolved ', urlParams.get('access_token'));
+    console.log('Resolved ', accessToken);
 
-    this.loginService.login(urlParams.get('access_token'));
+    if(accessToken){
+      this.loginService.login(accessToken);
+    }
 
-    return urlParams.get('access_token');
+    return accessToken;
   }
 }
