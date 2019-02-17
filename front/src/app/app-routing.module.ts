@@ -4,6 +4,7 @@ import {MainTemplateComponent} from "./templates/main-template/main-template.com
 import {LoginPageComponent} from "./login/login-page/login-page.component";
 import {TokenResolverService} from "./login/service/token-resolver.service";
 import {RepositoriesPageComponent} from "./repositories/repositories-page/repositories-page.component";
+import {AuthGuard} from "./login/service/auth.guard";
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
       },
       {
         path: 'repositories',
-        component: RepositoriesPageComponent
+        component: RepositoriesPageComponent,
+        canActivate: [AuthGuard]
       }
     ]
   }
