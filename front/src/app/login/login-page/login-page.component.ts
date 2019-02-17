@@ -1,6 +1,5 @@
 import {Component} from "@angular/core";
 import {LoginService} from "../service/login.service";
-import {Router} from "@angular/router";
 
 @Component({
   templateUrl: './login-page.component.html',
@@ -9,8 +8,7 @@ import {Router} from "@angular/router";
 export class LoginPageComponent {
 
   constructor(
-    private loginService: LoginService,
-    private router: Router,
+    private loginService: LoginService
   ) { }
 
   get accessToken(): string {

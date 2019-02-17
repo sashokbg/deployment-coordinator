@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Router} from "@angular/router";
 import {environment} from "../../../environments/environment";
+import {FlashMessagesService} from "../../common/service/flash-messages.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class LoginService {
   public accessToken: string;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private messageService: FlashMessagesService
   ) { }
 
   public redirectToLogin() {
@@ -20,6 +22,7 @@ export class LoginService {
 
   public login(accessToken: string) {
     console.log('Received accessToken ', accessToken);
+    this.messageService.postFlashMessage('You have logged in message !');
     let redirectAfterLogin = window.localStorage.getItem('redirectAfterLogin');
 
     if (redirectAfterLogin) {
